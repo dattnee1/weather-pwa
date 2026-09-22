@@ -4,12 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "npm run dev",
+    "dev": "concurrently -n \"SERVER,VITE\" -c \"blue.bold,green.bold\" \"node server/index.js\" \"vite\"",
+    "dev:frontend": "vite",
+    "server": "node server/index.js",
+    "db:view": "node server/view-db.js",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "concurrently": "^10.0.5",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
